@@ -1,0 +1,57 @@
+<form id='project-edit-form' class='project-management-form'>
+  <header id='editor-header' class='body-header'>
+    <input type="text" placeholder="Project Title" class='max-row' ng-model="project.title"/>
+  </header>
+  <div id='editor-content-wrapper'>
+    <div id='editor-content' ng-class="editorNavigatorClass">
+      <div class='max-row'>
+        <div id='editable-content' class='large-6 medium-6 small-12 column'>
+          <div class='editor-area-header'>
+            <div class='max-col'>
+              <span class='pull-left'>
+                <span class='editor-header-title'>Markdown</span>
+              </span>
+              <span class='pull-right show-for-small-only'>
+                <a href='' class='editor-header-control' ng-click="editorNavigatorClass='rendered-view'">Preview<img src='vendor/images/right_arrow.svg'/></a>
+              </span>
+            </div>
+          </div>
+          <div class='editor-area-content-wrapper'>
+            <div id='editable-scroll-wrap' class='editor-area-content max-col'>
+            	<div class='field'>
+             	  <textarea id='project_raw_content' ng-model='project.raw_content' style='display: none;'></textarea>
+             	</div>
+            </div>
+          </div>
+        </div>
+        <div id='rendered-content' class='large-6 medium-6 small-12 column'>
+          <div class='editor-area-header'>
+            <div class='max-col'>
+              <span class='pull-left hide-for-small-only'>
+                <span class='editor-header-title'>Preview</span>
+              </span>
+              <span class='pull-left show-for-small-only'>
+                <a href='' class='editor-header-control' ng-click="editorNavigatorClass=''"><img src='vendor/images/left_arrow.svg'/>Markdown</a>
+              </span>
+              <span class='pull-right show-for-small-only'>
+                <span class='editor-header-title'>Preview</span>
+              </span>
+            </div>
+          </div>
+          <div class='editor-area-content-wrapper'>
+            <div id='project-content' class='editor-area-content max-col'>
+              <!-- Populated via javascript. -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id='editor-footer'>
+    <div class='max-row'>
+      <div class="actions pull-right">
+        <button type="submit">Save</button>
+      </div>
+    </div>
+  </div>
+</form>

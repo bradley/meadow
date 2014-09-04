@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: example_development
+  pool: 5
+  username: example_dev
+  password: secret
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: example_test
+  pool: 5
+  username: example_dev
+  password: secret
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: example_production
+  pool: 5
+  username: example_dev
+  password: secret

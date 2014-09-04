@@ -1,0 +1,7 @@
+<div id='empty-projects-container' class='view-body hide-for-large-up'>
+	<ul>
+		<li ng-repeat="project in projects | orderBy: 'created_at':true">
+			<a ng-class="(currentProject.id == project.url) ? 'selected' : ''" class='ui-link' href='/#/projects/{{project.url}}'>{{project.title}}</a>
+		</li>
+	</ul>
+</div>

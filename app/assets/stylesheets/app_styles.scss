@@ -1,0 +1,1027 @@
+/*  SCSS Variables
+    ------------------------------------- */
+
+$storm: #0D0F17;
+$rain: #5B5B74;
+$mist: #d0cfcb;
+$text-color: #343748;
+$link-color: #0000ff;
+$link-hover: #5C5CF3;
+$link-underline: #814FFF;
+$link-hover-underline: #5C5CF3;
+$highlight: #FFD5D0;
+
+$header_footer_height: 64px;
+$main_offset: $header_footer_height * 2;
+
+$max_col_width: 530px;
+
+
+/*  SCSS Mixins
+    ------------------------------------- */
+
+@mixin transition ($transition) {
+  -webkit-transition: $transition;
+  -moz-transition:    $transition;
+  -ms-transition:     $transition;
+  -o-transition:      $transition;
+}
+
+@mixin transform ($transform) {
+  -webkit-transform: $transform;
+  -moz-transform:    $transform;
+  -o-transform:      $transform;
+  -ms-transform:     $transform;
+  transform:         $transform;
+}
+
+
+/*  Resets and Overrides
+    ------------------------------------- */
+
+/*
+  Allow angular.js to be loaded in body, hiding cloaked elements until
+  templates compile.  The !important is important given that there may be
+  other selectors that are more specific or come later and might alter display.
+ */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+.row {
+  max-width: 100%;
+}
+
+
+/*  Typography
+    ------------------------------------- */
+
+@font-face{
+  font-family: Bau;
+  src: font-url('bau.woff');
+}
+@font-face{
+  font-family: OpenSans;
+  src: font-url('OpenSans-Regular.ttf');
+}
+@font-face{
+  font-family: OpenSans-Italic;
+  src: font-url('OpenSans-Italic.ttf');
+}
+@font-face{
+  font-family: OpenSans-Light;
+  src: font-url('OpenSans-Light.ttf');
+}
+@font-face{
+  font-family: OpenSans-Light-Italic;
+  src: font-url('OpenSans-LightItalic.ttf');
+}
+@font-face{
+  font-family: OpenSans-Bold;
+  src: font-url('OpenSans-Bold.ttf');
+}
+@font-face{
+  font-family: OpenSans-Bold-Italic;
+  src: font-url('OpenSans-BoldItalic.ttf');
+}
+@font-face{
+  font-family: OpenSans-Semibold;
+  src: font-url('OpenSans-Semibold.ttf');
+}
+@font-face{
+  font-family: OpenSans-Semibold-Italic;
+  src: font-url('OpenSans-SemiboldItalic.ttf');
+}
+
+
+/*  3. Base
+    ------------------------------------- */
+
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  font: 17px "Bau";/*, "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+  line-height: 25.5px;
+  color: $text-color;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004); /* CSS Smooth font hack. Leave it. */
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: $storm;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004); /* CSS Smooth font hack. Leave it. */
+}
+h1 {
+  font-size: 30px;
+  font-weight: normal;
+}
+h3 {
+  font-size: 19px;
+  font-weight: normal;
+  line-height: 27px;
+}
+a {
+  color: $link-color;
+  border-bottom: 1px solid $link-color;
+  padding-bottom: 1px;
+  text-decoration: none;
+  &:visited {
+    color: $link-color!important;
+  }
+  &:hover {
+
+  }
+  &.icon-link {
+    height: 24px;
+    border-bottom: 0;
+    display: inline-block;
+    img {
+      height: 100%;
+    }
+    &:hover {
+    }
+  }
+  &.ui-link {
+    font-size: 19px;
+    color: $storm!important;
+    border-bottom: 0;
+    &:visited {
+      color: $storm!important;
+    }
+    &:hover {
+      color: $storm!important;
+    }
+    &.selected {
+      cursor: default;
+      color: $mist!important;
+    }
+  }
+}
+button {
+  display: inline-block;
+  padding: 11px 16px 10px;
+  position: relative;
+  color: white;
+  vertical-align: middle;
+  text-rendering: optimizeLegibility;
+  white-space: nowrap;
+  background: $storm;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 1px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  border: none;
+  outline: none;
+  transition: all 0.1s ease-in;
+  z-index: 1;
+  &:hover, &:active {
+    background: $rain;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  }
+}
+p {
+  &.small {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+textarea, input {
+  font-family: inherit;
+  color: $storm;
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004); /* CSS Smooth font hack. Leave it. */
+}
+::selection {
+    background: $highlight;
+}
+::-moz-selection {
+    background: $highlight;
+}
+sup {
+  /* These are the links to our footnotes that appear in
+       our project paragraphs. */
+  font-size: 12px;
+  vertical-align: baseline;
+  position: relative;
+  top: -0.5em;
+  left: 2px;
+}
+figure {
+  margin: 32px 0;
+  img {
+    margin-bottom: 8px!important;
+  }
+  figcaption {
+    text-align: center;
+    font-size: 14px;
+  }
+}
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+  clear: both;
+}
+
+
+/*  Base Layout
+    ------------------------------------- */
+
+#root-container-wrap {
+  height: 100%;
+  @include transition(all linear 0.7s);
+}
+#root-container {
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  header#masthead {
+    height: $header_footer_height;
+    padding: 16px 0;
+    position: fixed;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+    z-index: 9001;
+    background: white;
+    div.max-row {
+      margin: 0 auto;
+      a {
+        border-bottom: 0!important;
+        h1 {
+          color: $storm;
+          font-size: 19px;
+          line-height: 31px;
+        }
+      }
+      ul {
+        margin: 0 -16px 0 0;
+        padding: 0;
+        list-style: none;
+        line-height: 31px;
+        li {
+          padding: 0;
+          margin: 0 16px;
+          display: inline-block;
+          &.inline-list-item {
+            display: inline-block!important;
+          }
+        }
+      }
+    }
+  }
+  #view-frame-wrap {
+    width: 100%;
+    height: 100%;
+    padding: 64px 0 0;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+    position: absolute;
+    #view-frame {
+      height: 100%;
+      width: 100%;
+      -moz-box-sizing: border-box;
+           box-sizing: border-box;
+      position: absolute;
+      top: 0;
+      left: 0;
+      .view-body {
+        height: 100%;
+        padding-top: 96px;
+        position: relative;
+        .view-body-column {
+          height: 100%;
+          .body-header {
+            width: 100%;
+            height: 48px;
+            margin-top: 32px;
+            z-index: 1000;
+            position: relative;
+          }
+        }
+      }
+    }
+  }
+}
+.body-view {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 16px;
+  padding-top: 96px;
+}
+.max-row {
+  max-width: calc(100% - ((100% - #{$max_col_width} * 2) / 2));
+  padding: 0 1em;
+}
+.max-col {
+  max-width: $max_col_width;
+}
+
+
+/*  Transitions
+    ------------------------------------- */
+
+.ng-enter, .ng-leave {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.ng-enter {
+  @include transition(all 0.36s 0.36s);
+  opacity: 0;
+  &.ng-enter-active {
+    opacity: 1;
+  }
+}
+.ng-leave {
+  @include transition(all 0.36s 0.0s);
+  opacity: 1;
+  &.ng-leave-active {
+    opacity: 0;
+  }
+}
+.expose-private-parts {
+  &.ng-enter {
+    @include transform(scale(0.8));
+    @include transition(all 0.5s 0.25s);
+    &.ng-enter-active {
+      @include transform(scale(1.0));
+    }
+  }
+  &.ng-leave {
+    &.ng-leave-active {
+    }
+  }
+}
+#view-frame.public-project-transition {
+  &.ng-enter {
+    @include transition(all 0.5s 0.25s);
+    opacity: 0;
+    &.ng-enter-active {
+      opacity: 1;
+    }
+  }
+  &.ng-leave {
+    opacity: 1;
+    @include transform(scale(1.0));
+    &.ng-leave-active {
+      opacity: 0;
+      @include transform(scale(0.8));
+    }
+  }
+}
+#dynamic-content-view.public-project-transition {
+  &.ng-enter {
+    @include transition(all 0.5s 0.25s);
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100%, 0);
+    &.ng-enter-active {
+      opacity: 1;
+      -webkit-transform: none;
+              transform: none;
+    }
+  }
+  &.ng-leave {
+    opacity: 1;
+    &.ng-leave-active {
+      opacity: 0;
+    }
+    &:nth-child(1) {
+      &.ng-leave-active {
+        -webkit-transform: translate3d(0, -100%, 0);
+                transform: translate3d(0, -100%, 0);
+      }
+    }
+    &:nth-child(2) {
+      @include transform(scale(1.0));
+      &.ng-leave-active {
+        @include transform(scale(0.8));
+      }
+    }
+  }
+}
+
+
+/*  Home
+    ------------------------------------- */
+
+#home-wrap {
+  margin: 0 auto;
+}
+
+
+/*  Projects
+    ------------------------------------- */
+
+#project-base {
+  width: 100%;
+  padding: 0;
+  margin-bottom: 112px;
+  nav {
+    width: 192px;
+    z-index: 9001;
+    min-height: 1px; /* Hack */
+    padding: 0;
+    z-index: 9001;
+    position: fixed;
+    top: 96px;
+    ul {
+      list-style: none;
+      margin: 4px 0 0;
+      padding: 0;
+      li {
+        margin: 0;
+        padding: 0;
+        margin-left: 0px;
+        a {
+          color: $storm!important;
+          border-bottom: 0;
+          line-height: 28px;
+          position: relative;
+          &:hover {
+            color: $storm!important;
+            &:after {
+              width: calc(100% + 8px);
+            }
+          }
+          &.selected {
+            color: $storm!important;
+            &:after {
+              width: calc(100% + 8px);
+            }
+          }
+          &:after {
+            content: '';
+            height: 2px;
+            width: 0;
+            position: absolute;
+            left: -4px;
+            top: 9px;
+            background: $storm;
+            border-radius: 19px;
+            @include transition(width linear 0.35s);
+          }
+        }
+      }
+    }
+  }
+}
+#empty-projects-container {
+  padding-top: 0!important;
+  margin-left: -8px;
+  ul {
+    list-style: none;
+    margin: 6px 0 0;
+    padding: 0;
+    li {
+      margin: 0;
+      padding: 0;
+      margin-left: 0px;
+      a {
+        color: $storm!important;
+        border-bottom: 0;
+        line-height: 28px;
+        position: relative;
+        &:hover {
+          color: $storm!important;
+          &:after {
+            width: calc(100% + 8px);
+          }
+        }
+        &:after {
+          content: '';
+          height: 2px;
+          width: 0;
+          position: absolute;
+          left: -4px;
+          top: 9px;
+          background: $storm;
+          border-radius: 19px;
+          @include transition(width linear 0.35s);
+        }
+      }
+    }
+  }
+}
+#dynamic-content-view {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: block;
+  padding: 0 0.5em;
+}
+div#project-wrap {
+  float: left;
+  width: 100%;
+  position: relative;
+}
+div#project-wrapper, div#rendered-content {
+  display: block;
+  #article-wrap {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    article {
+      position: relative;
+      margin: 0 auto;
+      #project-header {
+        height: 48px;
+        padding-top: 12px;
+        .ui-link {
+          position: absolute;
+          line-height: 19px;
+          top: 20px;
+          right: 0;
+        }
+      }
+      #project-content {
+        margin-top: 32px;
+        overflow-x: hidden;
+      }
+    }
+  }
+  aside#footnotes {
+    ol {
+      margin: 0;
+      padding: 0;
+      li {
+        opacity: 0.36;
+        font-size: 13px;
+        line-height: 19.5px;
+        @include transition(opacity 0.25s 0s);
+        &:hover {
+          opacity: 1;
+        }
+        a {
+          color: $storm!important;
+          border-bottom: 1px solid $storm;
+          padding-bottom: 0px;
+          &:visited {
+            color: $storm!important;
+          }
+        }
+      }
+    }
+  }
+}
+#project-content {
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 32px;
+  }
+  ul {
+    margin: inherit;
+    padding-left: 30px;
+    margin-bottom: 1.25em;
+  }
+  p {
+    width: 100%;
+    position: relative;
+    &:hover {
+      & a.p-anchor {
+        opacity: 1;
+      }
+    }
+    a.p-anchor {
+      position: absolute;
+      left: -15px;
+      width: 15px;
+      height: 100%;
+      text-decoration: none;
+      opacity: 0;
+      &:hover {
+        opacity: 1;
+        text-decoration: none;
+      }
+    }
+    sup.footnote-pointer {
+      margin-right: 2px;
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+  img {
+    display: block;
+    margin: 2em auto;
+    max-width: 100%;
+  }
+  blockquote {
+    margin: 2em 1em;
+    border-left: 1px solid $mist;
+    padding-left: 16px;
+    font-family: "OpenSans-Italic";
+    color: $storm;
+  }
+}
+@media only screen and (min-width: 64.13em) {
+  #nav-code-link {
+    display: inline-block!important;
+  }
+  #article-wrap {
+    aside {
+      width: 192px;
+      position: absolute;
+      left: calc(100% + 32px);
+      top: 0;
+    }
+  }
+}
+@media only screen and (max-width: 64.063em) {
+  #nav-code-link {
+    display: none!important;
+  }
+  #article-wrap {
+    aside {
+      padding-left: 19px;
+      padding-top: 32px;
+      ol {
+        li {
+          margin-top: 0!important;
+        }
+      }
+    }
+  }
+}
+
+
+/*  Project Admin
+    ------------------------------------- */
+
+#close-admin-icon {
+  margin-top: 4px;
+}
+#project-management {
+  height: 100vh!important;
+  margin-top: -96px;
+  padding: 96px 0 0;
+}
+#editor-wrapper {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+form.project-management-form {
+  margin: 0;
+  height: 100%;
+  header#editor-header {
+    border-bottom: 1px solid $mist;
+    margin-top: 0px!important;
+    input {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      padding: 0 0.65em;
+      font-size: 30px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  div#editor-content-wrapper {
+    height: 100%;
+    margin-top: -48px;
+    padding: 48px 0 64px;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+    div#editor-content {
+      width: 100%;
+      height: 100%;
+      overflow-y: scroll;
+      display: block;
+      .max-row {
+        margin: 0 auto;
+        height: 100%;
+      }
+      .column {
+        height: 100%;
+        div.editor-area-header {
+          width: 100%;
+          height: 32px;
+          margin: 8px 0;
+          top: 0;
+          left: 0;
+          display: inline-block;
+          .editor-header-title {
+            color: #C0C0C0;
+            font-size: 14px;
+            display: inherit;
+            line-height: 19px;
+            margin-top: 1px;
+          }
+          > .max-col > span {
+            line-height: 17px;
+            margin-top: -3px;
+            a {
+              border-bottom: 0;
+              color: $storm!important;
+              text-decoration: none;
+              &:hover {
+                color: $storm!important;
+              }
+              img {
+                max-height: 21px;
+              }
+            }
+            &.pull-right {
+              img {
+                margin: 0 0 0 4px;
+              }
+            }
+            &.pull-left {
+              img {
+                margin: 0 4px 0 0;
+              }
+            }
+          }
+        }
+        div.editor-area-content-wrapper {
+          height: 100%;
+          margin-top: -56px; /* Weird bug because of floated elements in .editor-area-header means we had to add 8 px here... */
+          /*padding-top: 32px;
+          padding-bottom: 32px;*/
+          padding: 32px 1em;
+          -moz-box-sizing: border-box;
+               box-sizing: border-box;
+          overflow-y: hidden;
+          div.editor-area-content {
+            height: 100%;
+            overflow-y: scroll;
+          }
+          #editable-scroll-wrap {
+
+          }
+        }
+      }
+      #editable-content {
+        padding: 0;
+        border-right: 1px solid $mist;
+        .field {
+          height: 100%;
+          textarea#project_raw_content {
+            /* CodeMirror replaces our textarea so you
+               likely want to be styling there. */
+          }
+          .CodeMirror {
+            height: 100%;
+            /* Note: There is a hack in the projectForm directive that believes this is 24px.
+                 If you change this, you need to change there. */
+            line-height: 24px;
+            .cm-spell-error {
+              padding-bottom: 3px;
+              background-image: image-url('squiggle.gif');
+              background-position: bottom;
+              background-repeat: repeat-x;
+            }
+            .cm-spell-error.cm-url, .cm-spell-error.cm-link, .cm-spell-error.cm-comment {
+              padding-bottom: 3px;
+              background: none!important;
+            }
+          }
+          .CodeMirror-lines {
+            /* Vertical padding for content of CodeMirror */
+            padding-top: 14px;
+            margin-left: -4px;
+            .CodeMirror-code pre {
+
+            }
+          }
+        }
+        .editor-area-content-wrapper {
+          padding: 32px 1em 32px 0!important;
+        }
+      }
+      #rendered-content {
+        padding-right: 0;
+        .editor-area-header {
+          padding-left: 1em;
+          .max-col {
+            margin-right: 0;
+            margin-left: auto;
+          }
+        }
+        #project-content {
+          float: right;
+          overflow-x: hidden;
+          width: 100%;
+          word-wrap: break-word;
+        }
+        .editor-area-content-wrapper {
+          padding: 32px 0 32px 1em!important;
+        }
+      }
+    }
+  }
+  div#editor-footer {
+    width: 100%;
+    height: $header_footer_height;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 16px;
+    div.max-row {
+      margin: 0 auto;
+      padding: 0;
+    }
+    button {
+      margin-top: -16px;
+    }
+  }
+}
+@media (max-width: 40.065em) {
+  #editor-header {
+    padding: 0 1em;
+    input {
+      max-width: $max_col_width!important;
+      padding: 2px 0 0!important;
+    }
+  }
+  #editor-content {
+    width: 200%!important;
+    overflow: hidden!important;
+    @include transition(margin 0.5s 0.25s);
+    margin-left: 0;
+    &.rendered-view {
+      margin-left: -100%;
+      #editable-content  {
+        opacity: 0;
+      }
+      #rendered-content {
+        opacity: 1;
+      }
+    }
+    .editor-area-header {
+      padding-right: 1em!important;
+      .max-col {
+        margin-right: auto!important;
+        margin-left: auto!important;
+      }
+    }
+    .max-row {
+      max-width: 100%!important;
+    }
+  }
+  #editable-content  {
+    width: 50%!important;
+    padding-right: 0!important;
+    border-right: 0!important;
+    float: left;
+    opacity: 1;
+    @include transition(opacity 0.5s 0.25s);
+    .editor-area-header {
+      padding-right: 1em!important;
+      .max-col {
+        margin: 0 auto!important;
+      }
+    }
+    #editable-scroll-wrap {
+      margin: 0 auto!important;
+      float: none!important;
+    }
+  }
+  #rendered-content {
+    width: 50%!important;
+    padding-left: 0!important;
+    float: left;
+    opacity: 0;
+    @include transition(opacity 0.5s 0.25s);
+    .editor-area-header {
+      padding-left: 1em;
+      .max-col {
+        margin: 0 auto;
+      }
+    }
+    #project-content {
+      margin: 0 auto!important;
+      float: none!important;
+    }
+  }
+}
+
+
+/*  Information Page
+    ------------------------------------- */
+#personal-information {
+  margin-top: 8px;
+}
+#contact-links {
+  margin: 48px 0 112px;
+  h2 {
+    margin-bottom: 16px;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+
+    }
+  }
+}
+
+
+/*  Login and 404 Page
+    ------------------------------------- */
+
+#empty-body-container {
+  height: 100%;
+  margin-top: -32px;
+  padding-top: 32px!important;
+  box-sizing: content-box;
+  margin-left: -16px;
+  margin-right: -16px;
+  color: $storm;
+  div#empty-body {
+    height: 320px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    line-height: 141px;
+    font-size: 120px;
+    text-align: center;
+    padding: 16px;
+    form {
+      font-size: 17px;
+      width: 256px;
+      max-width: 100%;
+      margin: 0 auto;
+      input, button {
+        display: block;
+        width: 100%;
+      }
+      input {
+        margin-bottom: 16px;
+        outline: none;
+        border: 0;
+        border-bottom: 1px solid $mist;
+        padding: 8px 0;
+      }
+      button {
+        margin-top: 32px;
+      }
+    }
+  }
+}
+
+
+/*  Components
+    ------------------------------------- */
+
+div.highlight.prettyprint-wrap, pre.prettyprint-wrap, div.prettyprint-wrap {
+  font-family: monaco, monospace;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 200!important;
+  white-space: pre;
+  overflow-x: scroll;
+  pre, code {
+    font-family: monaco, monospace;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 200!important;
+    padding: 1.25em;
+    white-space: pre;
+    border: 1px solid $mist;
+    border-bottom: 1px solid #ddd;
+    -webkit-box-shadow: 0 1px 3px 0 #eee;
+    -webkit-border-radius: 3px;
+    overflow-x: scroll;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+  }
+}
+pre.prettyprint-wrap {
+  padding: 1.25em;
+  white-space: pre;
+}
+code {
+  font-family: monaco, monospace;
+  background: $mist;
+  line-height: 5px;
+  border-radius: 3px;
+  padding: 2px 8px 3px 8px;
+  color: black;
+  font-weight: normal;
+  font-size: 14px;
+}

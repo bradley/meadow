@@ -1,0 +1,67 @@
+/*
+    Important:
+    Most of the coderay styles are within
+    coderay.rb in the initializers file. This
+    is because in order to override coderay's
+    default styles, we must override a module
+    within the gem itself!
+*/
+.CodeRay {
+  background-color: #073642;
+  border: 1px solid #c0c0c0;
+  background: #002B36;
+  color: #eee8d5;
+  overflow-x: scroll;
+}
+.CodeRay pre {
+  margin: 0px;
+  background-color: transparent;
+}
+.CodeRay span.CodeRay {
+  white-space: pre;
+  border: 0px;
+  padding: 2px;
+}
+.CodeRay table.CodeRay {
+  border-collapse: collapse;
+  width: 100%;
+  padding: 2px;
+}
+.CodeRay table.CodeRay td {
+  padding: 2px 4px;
+  vertical-align: top;
+}
+.CodeRay .line-numbers {
+  color: #808080;
+  text-align: right;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.CodeRay .line-numbers a {
+  color: #808080;
+  text-decoration: none;
+}
+.CodeRay .line-numbers a:hover {
+  text-decoration: none;
+}
+.CodeRay .line-numbers a:target {
+  color: #00f !important;
+}
+.CodeRay .line-numbers .highlighted {
+  color: red !important;
+}
+.CodeRay .line-numbers .highlighted a {
+  color: red !important;
+}
+.CodeRay span.line-numbers {
+  padding: 0px 4px;
+}
+.CodeRay .line {
+  display: block;
+  float: left;
+  width: 100%;
+}
+.CodeRay .code {
+  width: 100%;
+}

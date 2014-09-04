@@ -1,0 +1,22 @@
+<div class='row'>
+  <div id='article-wrap' class='max-col'>
+    <article>
+    	<header id='project-header' class='body-header'>
+    		<h1>
+          {{project.title}}
+          <span class='pull-right' ng-if='is_logged_in' class='ng-cloak'>
+            <a href='#/admin/projects/{{project.url}}' class='ui-link'>Edit</a>
+          </span>
+        </h1>
+    	</header>
+    	<div id='project-content' footnote-adjuster ng-bind-html='trusted_content'></div>
+    </article>
+    <aside id='footnotes'>
+      <ol start='1'>
+        <li ng-repeat="footnote in trusted_footnotes" id='note-{{$index + 1}}'>
+          <span ng-bind-html='footnote'></span>
+        </li>
+      </ol>
+    </aside>
+  </div>
+</div>

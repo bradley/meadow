@@ -1,0 +1,15 @@
+<header id='masthead' class='row'>
+  <div class='max-row'>
+    <span class='pull-left'>
+    	<a ng-click='back_or_home()' class='icon-link'><img id='close-admin-icon' src='vendor/images/x.svg'/></a>
+    </span>
+    <ul class='pull-right'>
+      <li>
+        <a ng-ref='#/' ng-click='logout()' class='ui-link'>Logout</a>
+      </li>
+    </ul>
+  </div>
+</header>
+<div class='row'>
+	<div ui-view class='view-body'></div>
+</div>

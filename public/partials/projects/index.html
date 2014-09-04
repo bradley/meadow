@@ -1,0 +1,12 @@
+<section id='project-base' class='column'>
+	<nav class='show-for-large-up'>
+		<ul>
+			<li ng-repeat="project in projects | orderBy: 'created_at':true">
+				<a ng-class="(currentProject.id == project.url) ? 'selected' : ''" class='ui-link' href='/#/projects/{{project.url}}'>{{project.title}}</a>
+			</li>
+		</ul>
+	</nav>
+	<div id='project-wrapper'>
+		<div ui-view id='dynamic-content-view' class='insertion-checker' anim-class parent-height-adjuster></div>
+	</div>
+</section>
