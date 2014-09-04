@@ -10,7 +10,7 @@
                                 ~~             ~  meadow
 ```
 
-About Meadow (the real name for this once it's complete)
+About Meadow 
 ---
 
 Meadow is a simple blogging system based conceptually on the fantastic [Ghost](https://ghost.org/) blogging platform. Unlike Ghost, however, Meadow is built in Rails and Angularjs, making it more easily hackable for Ruby developers.
